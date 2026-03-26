@@ -1,0 +1,151 @@
+/* ─── Reset y Base ─── */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f4f8;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+main {
+    flex: 1;
+}
+
+/* ─── Navbar ─── */
+.navbar-brand {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    letter-spacing: 0.5px;
+}
+
+/* ─── Cards ─── */
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card-header {
+    border-radius: 12px 12px 0 0 !important;
+    font-size: 0.95rem;
+}
+
+/* ─── Clima actual ─── */
+#panelClima .card {
+    border-radius: 16px;
+    background: linear-gradient(135deg, #1565c0 0%, #1976d2 60%, #42a5f5 100%);
+}
+
+.temp-actual {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.ciudad-nombre {
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+}
+
+.icono-clima i {
+    font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+}
+
+/* ─── Tiles de estadisticas (sensacion, humedad, etc.) ─── */
+.stat-tile {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.stat-tile strong {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stat-label {
+    font-size: clamp(0.7rem, 1.2vw, 0.875rem);
+    opacity: 0.9;
+}
+
+.stat-icon {
+    font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+}
+
+/* ─── Pronóstico ─── */
+.card-pronostico {
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #e3e8ef;
+    transition: transform 0.15s;
+    min-width: 0;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.card-pronostico:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-pronostico .fw-bold {
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    white-space: nowrap;
+}
+
+.card-pronostico .small {
+    font-size: clamp(0.65rem, 1.2vw, 0.82rem);
+}
+
+.card-pronostico i {
+    font-size: clamp(1.4rem, 3vw, 2rem) !important;
+}
+
+/* ─── Tabla histórico ─── */
+#tablaHistorico .list-group-item {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+}
+
+/* ─── Select histórico ─── */
+.historico-select {
+    min-width: 120px;
+    max-width: 200px;
+    flex-shrink: 1;
+}
+
+/* ─── Badges de alerta ─── */
+.badge {
+    font-size: 0.75rem;
+}
+
+/* ─── Footer ─── */
+.footer {
+    font-size: 0.85rem;
+}
+
+/* ─── Loading spinner ─── */
+.spinner-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* ─── Responsive: zoom alto / pantallas medianas ─── */
+@media (max-width: 767px) {
+    .historico-select {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-tile strong {
+        font-size: 0.78rem;
+    }
+    .stat-label {
+        font-size: 0.68rem;
+    }
+}

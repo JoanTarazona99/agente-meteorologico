@@ -1,0 +1,273 @@
+# Traducciones al ruso — Agente Meteorológico
+# Copyright (C) 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: agente-meteorologico 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-19 20:04+0300\n"
+"PO-Revision-Date: 2026-03-19 20:04+0300\n"
+"Last-Translator: GitHub Copilot\n"
+"Language: ru\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/alerts.py
+#, python-format
+msgid "%(desc)s: valor actual %(val).1f, umbral configurado %(umbral).1f"
+msgstr "%(desc)s: текущее значение %(val).1f, порог %(umbral).1f"
+
+#: app/alerts.py
+msgid "Temperatura máxima superada"
+msgstr "Максимальная температура превышена"
+
+#: app/alerts.py
+msgid "Temperatura mínima alcanzada"
+msgstr "Минимальная температура достигнута"
+
+#: app/alerts.py
+msgid "Velocidad de viento elevada"
+msgstr "Высокая скорость ветра"
+
+#: app/alerts.py
+msgid "Humedad elevada"
+msgstr "Высокая влажность"
+
+#: templates/alertas.html templates/base.html
+msgid "Alertas"
+msgstr "Оповещения"
+
+#: templates/alertas.html templates/base.html templates/dashboard.html
+msgid "Agente Meteorológico"
+msgstr "Метеорологический агент"
+
+#: templates/alertas.html
+msgid "Sistema de Alertas"
+msgstr "Система оповещений"
+
+#: templates/alertas.html
+msgid "Nueva Alerta"
+msgstr "Новое оповещение"
+
+#: templates/alertas.html
+msgid "Ciudad"
+msgstr "Город"
+
+#: templates/alertas.html
+msgid "Selecciona una ciudad..."
+msgstr "Выберите город..."
+
+#: templates/alertas.html
+msgid "Tipo de Alerta"
+msgstr "Тип оповещения"
+
+#: templates/alertas.html
+msgid "Seleccionar tipo..."
+msgstr "Выберите тип..."
+
+#: templates/alertas.html
+msgid "Temperatura máxima"
+msgstr "Максимальная температура"
+
+#: templates/alertas.html
+msgid "Temperatura mínima"
+msgstr "Минимальная температура"
+
+#: templates/alertas.html
+msgid "Velocidad del viento"
+msgstr "Скорость ветра"
+
+#: templates/alertas.html templates/dashboard.html
+msgid "Humedad"
+msgstr "Влажность"
+
+#: templates/alertas.html
+msgid "Umbral"
+msgstr "Порог"
+
+#: templates/alertas.html
+msgid "Ej: 35"
+msgstr "Напр.: 35"
+
+#: templates/alertas.html templates/base.html
+msgid "Alerta si la temperatura supera este valor."
+msgstr "Оповещение, если температура превысит это значение."
+
+#: templates/alertas.html
+msgid "Guardar Alerta"
+msgstr "Сохранить оповещение"
+
+#: templates/alertas.html
+msgid "Alertas Configuradas"
+msgstr "Настроенные оповещения"
+
+#: templates/alertas.html
+msgid "umbral"
+msgstr "порог"
+
+#: templates/alertas.html
+msgid "Desactivar"
+msgstr "Отключить"
+
+#: templates/alertas.html
+msgid "No hay alertas configuradas."
+msgstr "Нет настроенных оповещений."
+
+#: templates/alertas.html
+msgid "Historial de Alertas Disparadas"
+msgstr "История сработавших оповещений"
+
+#: templates/alertas.html
+msgid "Marcar todas como leídas"
+msgstr "Отметить все как прочитанные"
+
+#: templates/alertas.html
+msgid "Tipo"
+msgstr "Тип"
+
+#: templates/alertas.html
+msgid "Mensaje"
+msgstr "Сообщение"
+
+#: templates/alertas.html
+msgid "Fecha"
+msgstr "Дата"
+
+#: templates/alertas.html
+msgid "Estado"
+msgstr "Статус"
+
+#: templates/alertas.html templates/base.html
+msgid "Leída"
+msgstr "Прочитано"
+
+#: templates/alertas.html
+msgid "No hay alertas en el historial."
+msgstr "В истории нет оповещений."
+
+#: templates/base.html templates/dashboard.html
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: templates/base.html
+msgid "Datos de"
+msgstr "Данные от"
+
+#: templates/base.html
+msgid "Por favor ingresa el nombre de una ciudad."
+msgstr "Пожалуйста, введите название города."
+
+#: templates/base.html
+msgid "Obteniendo datos del clima..."
+msgstr "Получение данных о погоде..."
+
+#: templates/base.html
+msgid "✅ Datos obtenidos correctamente."
+msgstr "✅ Данные получены успешно."
+
+#: templates/base.html
+msgid "Cargando..."
+msgstr "Загрузка..."
+
+#: templates/base.html templates/dashboard.html
+msgid "Obtener Clima"
+msgstr "Получить погоду"
+
+#: templates/base.html
+msgid "Sin registros. Busca una ciudad para comenzar."
+msgstr "Нет записей. Найдите город, чтобы начать."
+
+#: templates/base.html
+#, python-brace-format
+msgid "✅ Clima cargado. ⚠️ {n} alerta(s) disparada(s)."
+msgstr "✅ Погода загружена. ⚠️ Сработало оповещений: {n}."
+
+#: templates/base.html templates/dashboard.html
+msgid "Todas las ciudades"
+msgstr "Все города"
+
+#: templates/base.html templates/dashboard.html
+msgid "Seleccionar ciudad guardada..."
+msgstr "Выбрать сохранённый город..."
+
+#: templates/base.html
+msgid "Temperatura (°C)"
+msgstr "Температура (°C)"
+
+#: templates/base.html
+msgid "Completa todos los campos."
+msgstr "Заполните все поля."
+
+#: templates/base.html
+msgid "✅ Alerta creada correctamente. Recarga la página para verla."
+msgstr "✅ Оповещение создано. Обновите страницу, чтобы увидеть его."
+
+#: templates/base.html
+msgid "¿Desactivar esta alerta?"
+msgstr "Отключить это оповещение?"
+
+#: templates/base.html
+msgid "Alerta si la temperatura baja de este valor."
+msgstr "Оповещение, если температура опустится ниже этого значения."
+
+#: templates/base.html
+msgid "Alerta si el viento supera esta velocidad."
+msgstr "Оповещение, если ветер превысит эту скорость."
+
+#: templates/base.html
+msgid "Alerta si la humedad supera este porcentaje."
+msgstr "Оповещение, если влажность превысит этот процент."
+
+#: templates/dashboard.html
+msgid "Dashboard Meteorológico"
+msgstr "Метеорологическая панель"
+
+#: templates/dashboard.html
+msgid "Buscar Ciudad"
+msgstr "Поиск города"
+
+#: templates/dashboard.html
+msgid "Ej: Madrid, ES"
+msgstr "Напр.: Москва, RU"
+
+#: templates/dashboard.html
+msgid "Nombre de ciudad"
+msgstr "Название города"
+
+#: templates/dashboard.html
+msgid "Ciudades guardadas"
+msgstr "Сохранённые города"
+
+#: templates/dashboard.html
+msgid "Sensación"
+msgstr "Ощущается"
+
+#: templates/dashboard.html
+msgid "Viento"
+msgstr "Ветер"
+
+#: templates/dashboard.html
+msgid "Presión"
+msgstr "Давление"
+
+#: templates/dashboard.html
+msgid "Mín"
+msgstr "Мин"
+
+#: templates/dashboard.html
+msgid "Máx"
+msgstr "Макс"
+
+#: templates/dashboard.html
+msgid "Pronóstico 7 días"
+msgstr "Прогноз на 7 дней"
+
+#: templates/dashboard.html
+msgid "Histórico de Temperatura"
+msgstr "История температуры"
+
+#: templates/dashboard.html
+msgid "Últimos Registros"
+msgstr "Последние записи"

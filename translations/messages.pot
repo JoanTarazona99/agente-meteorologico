@@ -1,0 +1,278 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-03-19 20:05+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/alerts.py:7
+msgid "Temperatura máxima superada"
+msgstr ""
+
+#: app/alerts.py:8
+msgid "Temperatura mínima alcanzada"
+msgstr ""
+
+#: app/alerts.py:9
+msgid "Velocidad de viento elevada"
+msgstr ""
+
+#: app/alerts.py:10
+msgid "Humedad elevada"
+msgstr ""
+
+#: app/alerts.py:63
+#, python-format
+msgid "%(desc)s: valor actual %(val).1f, umbral configurado %(umbral).1f"
+msgstr ""
+
+#: templates/alertas.html:3 templates/base.html:39
+msgid "Alertas"
+msgstr ""
+
+#: templates/alertas.html:3 templates/base.html:6 templates/base.html:23
+#: templates/base.html:67 templates/dashboard.html:3
+msgid "Agente Meteorológico"
+msgstr ""
+
+#: templates/alertas.html:8
+msgid "Sistema de Alertas"
+msgstr ""
+
+#: templates/alertas.html:17
+msgid "Nueva Alerta"
+msgstr ""
+
+#: templates/alertas.html:22 templates/alertas.html:110
+msgid "Ciudad"
+msgstr ""
+
+#: templates/alertas.html:24
+msgid "Selecciona una ciudad..."
+msgstr ""
+
+#: templates/alertas.html:31
+msgid "Tipo de Alerta"
+msgstr ""
+
+#: templates/alertas.html:33
+msgid "Seleccionar tipo..."
+msgstr ""
+
+#: templates/alertas.html:34
+msgid "Temperatura máxima"
+msgstr ""
+
+#: templates/alertas.html:35
+msgid "Temperatura mínima"
+msgstr ""
+
+#: templates/alertas.html:36
+msgid "Velocidad del viento"
+msgstr ""
+
+#: templates/alertas.html:37 templates/dashboard.html:77
+msgid "Humedad"
+msgstr ""
+
+#: templates/alertas.html:41
+msgid "Umbral"
+msgstr ""
+
+#: templates/alertas.html:43
+msgid "Ej: 35"
+msgstr ""
+
+#: templates/alertas.html:44 templates/base.html:91
+msgid "Alerta si la temperatura supera este valor."
+msgstr ""
+
+#: templates/alertas.html:47
+msgid "Guardar Alerta"
+msgstr ""
+
+#: templates/alertas.html:59
+msgid "Alertas Configuradas"
+msgstr ""
+
+#: templates/alertas.html:75
+msgid "umbral"
+msgstr ""
+
+#: templates/alertas.html:78
+msgid "Desactivar"
+msgstr ""
+
+#: templates/alertas.html:86
+msgid "No hay alertas configuradas."
+msgstr ""
+
+#: templates/alertas.html:99
+msgid "Historial de Alertas Disparadas"
+msgstr ""
+
+#: templates/alertas.html:101
+msgid "Marcar todas como leídas"
+msgstr ""
+
+#: templates/alertas.html:111
+msgid "Tipo"
+msgstr ""
+
+#: templates/alertas.html:112
+msgid "Mensaje"
+msgstr ""
+
+#: templates/alertas.html:113
+msgid "Fecha"
+msgstr ""
+
+#: templates/alertas.html:114
+msgid "Estado"
+msgstr ""
+
+#: templates/alertas.html:141 templates/base.html:90
+msgid "Leída"
+msgstr ""
+
+#: templates/alertas.html:152
+msgid "No hay alertas en el historial."
+msgstr ""
+
+#: templates/base.html:33 templates/dashboard.html:3
+msgid "Dashboard"
+msgstr ""
+
+#: templates/base.html:67
+msgid "Datos de"
+msgstr ""
+
+#: templates/base.html:77
+msgid "Por favor ingresa el nombre de una ciudad."
+msgstr ""
+
+#: templates/base.html:78
+msgid "Obteniendo datos del clima..."
+msgstr ""
+
+#: templates/base.html:79
+msgid "✅ Datos obtenidos correctamente."
+msgstr ""
+
+#: templates/base.html:80
+msgid "Cargando..."
+msgstr ""
+
+#: templates/base.html:81 templates/dashboard.html:22
+msgid "Obtener Clima"
+msgstr ""
+
+#: templates/base.html:82
+msgid "Sin registros. Busca una ciudad para comenzar."
+msgstr ""
+
+#: templates/base.html:83
+#, python-brace-format
+msgid "✅ Clima cargado. ⚠️ {n} alerta(s) disparada(s)."
+msgstr ""
+
+#: templates/base.html:84 templates/dashboard.html:136
+msgid "Todas las ciudades"
+msgstr ""
+
+#: templates/base.html:85 templates/dashboard.html:38
+msgid "Seleccionar ciudad guardada..."
+msgstr ""
+
+#: templates/base.html:86
+msgid "Temperatura (°C)"
+msgstr ""
+
+#: templates/base.html:87
+msgid "Completa todos los campos."
+msgstr ""
+
+#: templates/base.html:88
+msgid "✅ Alerta creada correctamente. Recarga la página para verla."
+msgstr ""
+
+#: templates/base.html:89
+msgid "¿Desactivar esta alerta?"
+msgstr ""
+
+#: templates/base.html:92
+msgid "Alerta si la temperatura baja de este valor."
+msgstr ""
+
+#: templates/base.html:93
+msgid "Alerta si el viento supera esta velocidad."
+msgstr ""
+
+#: templates/base.html:94
+msgid "Alerta si la humedad supera este porcentaje."
+msgstr ""
+
+#: templates/dashboard.html:8
+msgid "Dashboard Meteorológico"
+msgstr ""
+
+#: templates/dashboard.html:17
+msgid "Buscar Ciudad"
+msgstr ""
+
+#: templates/dashboard.html:20
+msgid "Ej: Madrid, ES"
+msgstr ""
+
+#: templates/dashboard.html:20
+msgid "Nombre de ciudad"
+msgstr ""
+
+#: templates/dashboard.html:33
+msgid "Ciudades guardadas"
+msgstr ""
+
+#: templates/dashboard.html:70
+msgid "Sensación"
+msgstr ""
+
+#: templates/dashboard.html:84
+msgid "Viento"
+msgstr ""
+
+#: templates/dashboard.html:91
+msgid "Presión"
+msgstr ""
+
+#: templates/dashboard.html:99
+msgid "Mín"
+msgstr ""
+
+#: templates/dashboard.html:104
+msgid "Máx"
+msgstr ""
+
+#: templates/dashboard.html:120
+msgid "Pronóstico 7 días"
+msgstr ""
+
+#: templates/dashboard.html:134
+msgid "Histórico de Temperatura"
+msgstr ""
+
+#: templates/dashboard.html:150
+msgid "Últimos Registros"
+msgstr ""
+

@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Alertas') }} - {{ _('Agente Meteorológico') }}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h2 class="h4 fw-bold"><i class="bi bi-bell-fill me-2"></i>{{ _('Sistema de Alertas') }}</h2>
+    </div>
+</div>
+
+<!-- Crear nueva alerta -->
+<div class="row mb-4">
+    <div class="col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-transparent fw-semibold">
+                <i class="bi bi-plus-circle me-2"></i>{{ _('Nueva Alerta') }}
+            </div>
+            <div class="card-body">
+                <form id="formNuevaAlerta">
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Ciudad') }}</label>
+                        <select class="form-select" id="alertaCiudad" required>
+                            <option value="">{{ _('Selecciona una ciudad...') }}</option>
+                            {% for ciudad in ciudades %}
+                            <option value="{{ ciudad.id }}">{{ ciudad.nombre }}, {{ ciudad.pais }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Tipo de Alerta') }}</label>
+                        <select class="form-select" id="alertaTipo" required>
+                            <option value="">{{ _('Seleccionar tipo...') }}</option>
+                            <option value="temp_max">🌡️ {{ _('Temperatura máxima') }}</option>
+                            <option value="temp_min">❄️ {{ _('Temperatura mínima') }}</option>
+                            <option value="viento">💨 {{ _('Velocidad del viento') }}</option>
+                            <option value="humedad">💧 {{ _('Humedad') }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Umbral') }} <span id="unidadUmbral" class="text-muted small">(°C)</span></label>
+                        <input type="number" class="form-control" id="alertaUmbral"
+                               step="0.1" required placeholder="{{ _('Ej: 35') }}">
+                        <div class="form-text" id="textoAyudaUmbral">{{ _('Alerta si la temperatura supera este valor.') }}</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-save me-1"></i>{{ _('Guardar Alerta') }}
+                    </button>
+                </form>
+                <div id="mensajeAlerta" class="mt-2 small"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alertas activas -->
+    <div class="col-lg-6">
+        <div class="card shadow-sm">
+            <div class="card-header bg-transparent fw-semibold">
+                <i class="bi bi-toggles me-2"></i>{{ _('Alertas Configuradas') }}
+            </div>
+            <div class="card-body p-0">
+                {% if configs %}
+                <ul class="list-group list-group-flush">
+                    {% for config in configs %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <span class="badge
+                                {% if config.tipo == 'temp_max' %}bg-danger
+                                {% elif config.tipo == 'temp_min' %}bg-info
+                                {% elif config.tipo == 'viento' %}bg-secondary
+                                {% else %}bg-primary{% endif %} me-2">
+                                {{ config.tipo }}
+                            </span>
+                            <strong>{{ config.ciudad.nombre }}</strong>
+                            &mdash; {{ _('umbral') }}: {{ config.umbral }}
+                        </div>
+                        <button class="btn btn-sm btn-outline-danger btnDesactivar"
+                                data-id="{{ config.id }}" title="{{ _('Desactivar') }}">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    {{ _('No hay alertas configuradas.') }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Historial de alertas -->
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-transparent fw-semibold d-flex justify-content-between align-items-center">
+                <span><i class="bi bi-journal-text me-2"></i>{{ _('Historial de Alertas Disparadas') }}</span>
+                <button class="btn btn-sm btn-outline-secondary" id="btnMarcarTodas">
+                    <i class="bi bi-check-all me-1"></i>{{ _('Marcar todas como leídas') }}
+                </button>
+            </div>
+            <div class="card-body p-0">
+                {% if historial %}
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{{ _('Ciudad') }}</th>
+                                <th>{{ _('Tipo') }}</th>
+                                <th>{{ _('Mensaje') }}</th>
+                                <th>{{ _('Fecha') }}</th>
+                                <th>{{ _('Estado') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaHistorial">
+                            {% for item in historial %}
+                            <tr class="{% if not item.leida %}table-warning{% endif %}" data-id="{{ item.id }}">
+                                <td>
+                                    {% set ciudad = item.ciudad_id %}
+                                    <small>ID {{ item.ciudad_id }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge
+                                        {% if item.tipo == 'temp_max' %}bg-danger
+                                        {% elif item.tipo == 'temp_min' %}bg-info
+                                        {% elif item.tipo == 'viento' %}bg-secondary
+                                        {% else %}bg-primary{% endif %}">
+                                        {{ item.tipo }}
+                                    </span>
+                                </td>
+                                <td><small>{{ item.mensaje }}</small></td>
+                                <td><small>{{ item.disparado_en.strftime('%d/%m/%Y %H:%M') }}</small></td>
+                                <td>
+                                    {% if not item.leida %}
+                                    <button class="btn btn-sm btn-outline-success btnLeer" data-id="{{ item.id }}">
+                                        <i class="bi bi-check-lg"></i>
+                                    </button>
+                                    {% else %}
+                                    <span class="text-muted small"><i class="bi bi-check2-all"></i> {{ _('Leída') }}</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-5">
+                    <i class="bi bi-bell-slash fs-1 d-block mb-2"></i>
+                    {{ _('No hay alertas en el historial.') }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/alertas.js') }}"></script>
+{% endblock %}
