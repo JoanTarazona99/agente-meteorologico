@@ -46,8 +46,12 @@ def api_clima_actual():
     try:
         servicio = ServicioClima()
         datos = servicio.obtener_clima_actual(ciudad_nombre)
-        ciudad = servicio.obtener_o_crear_ciudad(datos)
+        ciudad, es_nueva = servicio.obtener_o_crear_ciudad(datos)
         registro = servicio.guardar_registro(ciudad.id, datos)
+        
+        # Si es ciudad nueva, generar histórico inicial
+        if es_nueva:
+            servicio.generar_historico_inicial(ciudad.id, datos)
 
         sistema_alertas = SistemaAlertas()
         alertas = sistema_alertas.evaluar_alertas(ciudad.id, datos)
