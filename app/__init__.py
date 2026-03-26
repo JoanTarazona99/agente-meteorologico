@@ -11,7 +11,7 @@ _BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def get_locale():
-    return session.get('lang', 'es')
+    return session.get('lang', 'ru')
 
 
 def create_app(config_name='default'):
