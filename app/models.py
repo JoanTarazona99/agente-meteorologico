@@ -42,6 +42,7 @@ class RegistroClima(db.Model):
     presion = db.Column(db.Float, nullable=True)
     velocidad_viento = db.Column(db.Float, nullable=True)
     direccion_viento = db.Column(db.Integer, nullable=True)
+    codigo_wmo = db.Column(db.Integer, nullable=True)
     descripcion = db.Column(db.String(200), nullable=True)
     icono = db.Column(db.String(20), nullable=True)
     nubosidad = db.Column(db.Integer, nullable=True)
@@ -62,6 +63,7 @@ class RegistroClima(db.Model):
             'humedad': self.humedad,
             'presion': self.presion,
             'velocidad_viento': self.velocidad_viento,
+            'codigo_wmo': self.codigo_wmo,
             'descripcion': self.descripcion,
             'icono': self.icono,
             'nubosidad': self.nubosidad,

@@ -9,7 +9,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    BABEL_DEFAULT_LOCALE = 'es'
+    BABEL_DEFAULT_LOCALE = 'ru'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
     LANGUAGES = ['es', 'ru']
 

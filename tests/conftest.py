@@ -13,6 +13,15 @@ def app():
     yield application
 
 
+@pytest.fixture(autouse=True)
+def setup_locale(app):
+    """Establece el locale a español para todos los tests."""
+    with app.test_request_context():
+        from flask import session
+        session['lang'] = 'es'
+        yield
+
+
 @pytest.fixture(scope='session')
 def db(app):
     """Crea todas las tablas al inicio de la sesión de pruebas."""
