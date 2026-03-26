@@ -1,6 +1,7 @@
 // ─── Dashboard: Lógica principal ───────────────────────────────────────────
 
 let graficaTemp = null;
+let ciudadIdActual = '';
 
 // ─── Eventos al cargar página ───────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,9 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const selectHistorico = document.getElementById('selectCiudadHistorico');
     if (selectHistorico) {
-        selectHistorico.addEventListener('change', () => cargarHistorico(selectHistorico.value));
+        selectHistorico.addEventListener('change', () => {
+            ciudadIdActual = selectHistorico.value;
+            cargarHistorico(ciudadIdActual);
+        });
         cargarHistorico('');
     }
+
+    // Interceptar cambios de idioma para recargar tabla
+    document.querySelectorAll('a[href*="/set-lang/"]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = btn.href.match(/\/set-lang\/(es|ru)/)[1];
+            window.location.href = btn.href; // Redirige y recarga
+        });
+    });
 });
 
 // ─── Buscar clima actual ────────────────────────────────────────────────────
