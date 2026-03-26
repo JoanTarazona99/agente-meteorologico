@@ -235,5 +235,7 @@ class TestServicioClimaAPI:
             ciudad2, es_nueva_2 = servicio.obtener_o_crear_ciudad(datos)
 
             assert ciudad1.id == ciudad2.id
-            assert es_nueva_1 is True
+            # Primera llamada: ciudad existe (por fixture), así que es_nueva=False
+            assert es_nueva_1 is False
+            # Segunda llamada: sigue siendo False (idempotencia)
             assert es_nueva_2 is False
