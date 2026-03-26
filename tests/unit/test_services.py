@@ -215,10 +215,11 @@ class TestServicioClimaAPI:
             datos_clima_mock['pais'] = 'TC'
 
             servicio = ServicioClima.__new__(ServicioClima)
-            ciudad = servicio.obtener_o_crear_ciudad(datos_clima_mock)
+            ciudad, es_nueva = servicio.obtener_o_crear_ciudad(datos_clima_mock)
 
             assert ciudad.id is not None
             assert ciudad.nombre == 'TestCiudad'
+            assert es_nueva is True
 
     def test_obtener_o_crear_ciudad_existente(self, app, ciudad_ejemplo):
         """Verifica que no se duplica una ciudad que ya existe."""
@@ -230,7 +231,9 @@ class TestServicioClimaAPI:
             datos = {'ciudad': ciudad_bd.nombre, 'pais': ciudad_bd.pais, 'latitud': None, 'longitud': None}
 
             servicio = ServicioClima.__new__(ServicioClima)
-            ciudad1 = servicio.obtener_o_crear_ciudad(datos)
-            ciudad2 = servicio.obtener_o_crear_ciudad(datos)
+            ciudad1, es_nueva_1 = servicio.obtener_o_crear_ciudad(datos)
+            ciudad2, es_nueva_2 = servicio.obtener_o_crear_ciudad(datos)
 
             assert ciudad1.id == ciudad2.id
+            assert es_nueva_1 is True
+            assert es_nueva_2 is False
