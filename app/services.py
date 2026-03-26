@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 from app import db
 from app.models import Ciudad, RegistroClima
 
@@ -223,6 +223,7 @@ class ServicioClima:
             pais=datos_clima['pais']
         ).first()
 
+        es_nueva = False
         if not ciudad:
             ciudad = Ciudad(
                 nombre=datos_clima['ciudad'],
@@ -232,5 +233,47 @@ class ServicioClima:
             )
             db.session.add(ciudad)
             db.session.commit()
+            es_nueva = True
 
-        return ciudad
+        return ciudad, es_nueva
+
+    def generar_historico_inicial(self, ciudad_id, datos_clima):
+        """Genera 7 registros históricos iniciales con variaciones realistas."""
+        temp_actual = datos_clima.get('temperatura', 20)
+        humedad_actual = datos_clima.get('humedad', 50)
+        codigo_wmo = datos_clima.get('codigo_wmo', 0)
+        
+        # Generar registros para los últimos 7 días intercalados (cada ~34 horas)
+        registros = []
+        for i in range(7, 0, -1):
+            # Variar temperatura entre -4°C y +2°C del valor actual
+            variacion_temp = (i % 3 - 1) * 2  # -2, 0, 2, -2, 0, 2, -2
+            temp_simulada = max(-50, min(60, temp_actual + variacion_temp))
+            
+            # Variar humedad entre -15% y +15%
+            variacion_humedad = (i % 4 - 2) * 8  # -16, -8, 0, 8, -16, -8, 0
+            humedad_simulada = max(0, min(100, humedad_actual + variacion_humedad))
+            
+            timestamp = datetime.utcnow() - timedelta(hours=34 * i)
+            
+            registro = RegistroClima(
+                ciudad_id=ciudad_id,
+                temperatura=temp_simulada,
+                sensacion_termica=temp_simulada - 2,  # Aproximado
+                temp_min=temp_simulada - 3,
+                temp_max=temp_simulada + 1,
+                humedad=humedad_simulada,
+                presion=datos_clima.get('presion', 1013.0),
+                velocidad_viento=datos_clima.get('velocidad_viento', 5),
+                direccion_viento=datos_clima.get('direccion_viento', 90),
+                codigo_wmo=codigo_wmo,
+                descripcion=datos_clima.get('descripcion', 'datos'),
+                icono=datos_clima.get('icono', 'cloud'),
+                nubosidad=50 + (i % 3) * 15,
+                visibilidad=10000,
+                registrado_en=timestamp
+            )
+            registros.append(registro)
+        
+        db.session.add_all(registros)
+        db.session.commit()
