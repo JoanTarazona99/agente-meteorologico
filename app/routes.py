@@ -80,6 +80,9 @@ def api_pronostico():
 
 @bp.route('/api/historico', methods=['GET'])
 def api_historico():
+    from flask_babel import get_locale
+    from app.services import _wmo_desc
+    
     ciudad_id = request.args.get('ciudad_id', type=int)
     limite = request.args.get('limite', 24, type=int)
 
@@ -88,7 +91,16 @@ def api_historico():
         query = query.filter_by(ciudad_id=ciudad_id)
 
     registros = query.order_by(RegistroClima.registrado_en.desc()).limit(limite).all()
-    return jsonify({'status': 'ok', 'registros': [r.to_dict() for r in registros]})
+    
+    # Traducir descripción según el idioma actual
+    registros_dict = []
+    for r in registros:
+        reg_dict = r.to_dict()
+        if r.codigo_wmo is not None:
+            reg_dict['descripcion'] = _wmo_desc(r.codigo_wmo)
+        registros_dict.append(reg_dict)
+    
+    return jsonify({'status': 'ok', 'registros': registros_dict})
 
 
 # ─── API REST: Ciudades ───────────────────────────────────────────────────────
