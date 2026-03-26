@@ -239,3 +239,35 @@ class TestServicioClimaAPI:
             assert es_nueva_1 is False
             # Segunda llamada: sigue siendo False (idempotencia)
             assert es_nueva_2 is False
+    def test_generar_historico_inicial_crea_siete_registros(self, app, datos_clima_mock):
+        """Verifica que generar_historico_inicial crea 7 registros con variaciones."""
+        with app.app_context():
+            from app.services import ServicioClima
+            from app.models import Ciudad, RegistroClima
+            from app import db
+
+            # Crear una ciudad
+            ciudad = Ciudad(nombre='TestCity', pais='TC', latitud=0, longitud=0)
+            db.session.add(ciudad)
+            db.session.commit()
+
+            # Generar histórico
+            servicio = ServicioClima.__new__(ServicioClima)
+            servicio.generar_historico_inicial(ciudad.id, datos_clima_mock)
+
+            # Verificar que se crearon 7 registros
+            registros = RegistroClima.query.filter_by(ciudad_id=ciudad.id).all()
+            assert len(registros) == 7
+
+            # Verificar que tienen temperaturas variadas
+            temperatures = [r.temperatura for r in registros]
+            assert len(set(temperatures)) > 1  # Debe haber variación de temperaturas
+
+            # Verificar que todos tienen timestamps en el pasado cercano
+            from datetime import datetime, timedelta
+            ahora = datetime.utcnow()
+            for registro in registros:
+                tiempo_pasado = ahora - registro.registrado_en
+                # Debe estar en los últimos ~350 horas (7 días + algunos minutos)
+                assert tiempo_pasado < timedelta(hours=400)
+                assert tiempo_pasado > timedelta(hours=0)
