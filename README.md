@@ -86,3 +86,10 @@ pytest tests/unit/ tests/integration/ --cov=app --cov-report=html
 ## Licencia
 
 Proyecto educativo / personal.
+
+
+---
+
+## 👤 Autor
+
+**Joan Tarazona** · [GitHub](https://github.com/JoanTarazona99)
