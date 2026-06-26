@@ -270,4 +270,8 @@ class TestServicioClimaAPI:
                 tiempo_pasado = ahora - registro.registrado_en
                 # Debe estar en los últimos ~350 horas (7 días + algunos minutos)
                 assert tiempo_pasado < timedelta(hours=400)
+<<<<<<< HEAD
                 assert tiempo_pasado > timedelta(hours=0)
+=======
+                assert tiempo_pasado > timedelta(hours=0)
+>>>>>>> 74858713438905e1a37e89de753c456d3b5897b6
