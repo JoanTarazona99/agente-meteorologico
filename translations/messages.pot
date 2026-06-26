@@ -1,14 +1,15 @@
-# Translations template for PROJECT.
+# Translations template for agente-meteorologico.
 # Copyright (C) 2026 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the agente-meteorologico
+# project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
+"Project-Id-Version: agente-meteorologico 1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-03-19 20:05+0300\n"
+"POT-Creation-Date: 2026-06-24 20:40+0230\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -83,7 +84,7 @@ msgstr ""
 msgid "Velocidad del viento"
 msgstr ""
 
-#: templates/alertas.html:37 templates/dashboard.html:77
+#: templates/alertas.html:37 templates/dashboard.html:81
 msgid "Humedad"
 msgstr ""
 
@@ -188,11 +189,11 @@ msgstr ""
 msgid "✅ Clima cargado. ⚠️ {n} alerta(s) disparada(s)."
 msgstr ""
 
-#: templates/base.html:84 templates/dashboard.html:136
+#: templates/base.html:84 templates/dashboard.html:140
 msgid "Todas las ciudades"
 msgstr ""
 
-#: templates/base.html:85 templates/dashboard.html:38
+#: templates/base.html:85 templates/dashboard.html:42
 msgid "Seleccionar ciudad guardada..."
 msgstr ""
 
@@ -224,6 +225,22 @@ msgstr ""
 msgid "Alerta si la humedad supera este porcentaje."
 msgstr ""
 
+#: templates/base.html:95 templates/dashboard.html:25
+msgid "Hablar"
+msgstr ""
+
+#: templates/base.html:96
+msgid "Escuchando..."
+msgstr ""
+
+#: templates/base.html:97
+msgid "Tu navegador no soporta reconocimiento de voz."
+msgstr ""
+
+#: templates/base.html:98
+msgid "No se pudo acceder al micrófono."
+msgstr ""
+
 #: templates/dashboard.html:8
 msgid "Dashboard Meteorológico"
 msgstr ""
@@ -240,39 +257,39 @@ msgstr ""
 msgid "Nombre de ciudad"
 msgstr ""
 
-#: templates/dashboard.html:33
+#: templates/dashboard.html:37
 msgid "Ciudades guardadas"
 msgstr ""
 
-#: templates/dashboard.html:70
+#: templates/dashboard.html:74
 msgid "Sensación"
 msgstr ""
 
-#: templates/dashboard.html:84
+#: templates/dashboard.html:88
 msgid "Viento"
 msgstr ""
 
-#: templates/dashboard.html:91
+#: templates/dashboard.html:95
 msgid "Presión"
 msgstr ""
 
-#: templates/dashboard.html:99
+#: templates/dashboard.html:103
 msgid "Mín"
 msgstr ""
 
-#: templates/dashboard.html:104
+#: templates/dashboard.html:108
 msgid "Máx"
 msgstr ""
 
-#: templates/dashboard.html:120
+#: templates/dashboard.html:124
 msgid "Pronóstico 7 días"
 msgstr ""
 
-#: templates/dashboard.html:134
+#: templates/dashboard.html:138
 msgid "Histórico de Temperatura"
 msgstr ""
 
-#: templates/dashboard.html:150
+#: templates/dashboard.html:154
 msgid "Últimos Registros"
 msgstr ""
 

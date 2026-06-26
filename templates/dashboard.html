@@ -21,6 +21,10 @@
                     <button class="btn btn-primary" id="btnBuscar" type="button">
                         <i class="bi bi-cloud-download me-1"></i>{{ _('Obtener Clima') }}
                     </button>
+                    <button class="btn btn-outline-secondary" id="btnVoz" type="button"
+                            title="{{ _('Hablar') }}" aria-label="{{ _('Hablar') }}">
+                        <i class="bi bi-mic-fill"></i>
+                    </button>
                 </div>
                 <div id="mensajeBusqueda" class="mt-2 small"></div>
             </div>
@@ -159,4 +163,5 @@
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/voz.js') }}"></script>
 {% endblock %}

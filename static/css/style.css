@@ -149,3 +149,20 @@ main {
         font-size: 0.68rem;
     }
 }
+
+/* ─── Asistente de voz ─── */
+#btnVoz {
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+#btnVoz.escuchando {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    animation: voz-pulso 1.2s infinite;
+}
+
+@keyframes voz-pulso {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.6); }
+    50%      { box-shadow: 0 0 0 8px rgba(220, 53, 69, 0); }
+}

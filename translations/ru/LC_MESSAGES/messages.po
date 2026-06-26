@@ -271,3 +271,19 @@ msgstr "История температуры"
 #: templates/dashboard.html
 msgid "Últimos Registros"
 msgstr "Последние записи"
+
+#: templates/base.html templates/dashboard.html
+msgid "Hablar"
+msgstr "Говорить"
+
+#: templates/base.html
+msgid "Escuchando..."
+msgstr "Слушаю..."
+
+#: templates/base.html
+msgid "Tu navegador no soporta reconocimiento de voz."
+msgstr "Ваш браузер не поддерживает распознавание речи."
+
+#: templates/base.html
+msgid "No se pudo acceder al micrófono."
+msgstr "Не удалось получить доступ к микрофону."
